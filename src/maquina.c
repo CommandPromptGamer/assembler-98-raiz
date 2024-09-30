@@ -285,6 +285,7 @@ void reset(GtkWidget *widget, gpointer builder) {
 
 /**
  * Esta funcao executa a instrucao atual da maquina hipotetica denominada pelo valor da variavel program_counter, que e uma posicao no vetor memory.
+ * Esta funcao atualiza o valor do registrador Acumulador na GUI.
  * 
  * @param data struct contendo dados do GTK: treeview, store (dados tabulares de memory) e builder (dados oriundos do arquivo glade)
  */
