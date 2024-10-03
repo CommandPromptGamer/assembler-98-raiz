@@ -640,18 +640,18 @@ int parseLoad( program_t *program, token_t *c_tok )
     bool defined;
     switch ( peeked_1->type ) 
     {
-        case TOK_ADDRESSING:
+        case TOK_ADDRESSING: //caso tenha token definindo enderecamento
             peeked_2 = getNextToken( program );
-            if ( strncmp( peeked_1->token, "&", 2 ) == 0 )
+            if ( strncmp( peeked_1->token, "&", 2 ) == 0 ) //direto
             {
                 insert( program->sections->dot_text, LOAD_DIRECT  );
             }else 
             {
-                insert( program->sections->dot_text, LOAD_INDIRECT );
+                insert( program->sections->dot_text, LOAD_INDIRECT ); //indireto
             }
             insert( program->sections->dot_text, peeked_2->value );
             break;
-        case TOK_LITERAL:
+        case TOK_LITERAL: //imediato
         case TOK_LITERAL_HEX:
             insert( program->sections->dot_text, LOAD_IMMEDIATE  );
             insert( program->sections->dot_text, peeked_1->value );
